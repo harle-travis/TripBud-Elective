@@ -104,7 +104,7 @@ session_start();
 </head>
 <body class="bg-light">
 <?php
-  include('user/user-nav.php');
+  include('user-nav.php');
   ?>
   <div class="container-fluid px-lg-4 mt-4">
   
@@ -117,7 +117,7 @@ session_start();
         <div class="content h-font">TripBud</div>
         <div class="contentText">Let’s start your journey with us, your dream will come true</div>
         <?php if (isset($_SESSION['user_id'])) : ?>
-          <a class="contentButton nav-link <?php if(basename($_SERVER['PHP_SELF']) == 'user/rooms.php') echo 'active'; ?>" href="user/rooms.php" id="rooms-link">
+          <a class="contentButton nav-link <?php if(basename($_SERVER['PHP_SELF']) == 'rooms.php') echo 'active'; ?>" href="rooms.php" id="rooms-link">
           View Destinations!
         </a>
         <?php else : ?>
@@ -127,7 +127,7 @@ session_start();
         </button>
         <?php endif; ?>
         
-          <img src="img/banner_bg 1.png" alt="image1" class="w-100 d-block" />
+          <img src="../img/banner_bg 1.png" alt="image1" class="w-100 d-block" />
         </div>
       
         
@@ -141,6 +141,6 @@ session_start();
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
 <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
 <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
-<script src="JS/index.js"></script>
+<script src="../JS/index.js"></script>
 </body>
 </html>
