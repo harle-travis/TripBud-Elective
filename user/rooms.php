@@ -199,9 +199,9 @@ session_start();
 
     // Count total records based on search
     if (!empty($searchTerm)) {
-        $sql = "SELECT COUNT(*) AS total FROM rooms WHERE room_name LIKE '%$searchTerm%'";
+        $sql = "SELECT COUNT(*) AS total FROM places WHERE place_name LIKE '%$searchTerm%'";
     } else {
-        $sql = "SELECT COUNT(*) AS total FROM rooms";
+        $sql = "SELECT COUNT(*) AS total FROM places";
     }
 
     $result = $conn->query($sql);

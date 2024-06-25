@@ -169,77 +169,7 @@ session_start();
                 </div>
               </div>
 
-              <!-- Booking Modal for Room <?php echo $row['room_name']; ?> -->
-              <div class="modal fade" id="bookingModal_<?php echo $row['room_id']; ?>" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
-                <div class="modal-dialog modal-lg">
-                  <div class="modal-content">
-                    <form id="bookingForm_<?php echo $row['room_id']; ?>" action="../php/booking-process.php">
-                      <div class="modal-header">
-                        <h5 class="modal-title d-flex align-items-center">
-                          <i class="bi bi-calendar3-fill fs-3 me-2"></i> Booking Form for <?php echo $row['room_name']; ?> - ₱<?php echo $row['price']; ?>/8 Hours
-                        </h5>
-                        <button type="reset" class="btn-close shadow-none" data-bs-dismiss="modal" aria-label="Close"></button>
-                      </div>
-                      <div class="modal-body">
-                        <div class="container-fluid">
-                          <div class="row">
-                            <input type="hidden" id="room_id" name="room_id" value="<?php echo $row['room_id']; ?>">
-
-                            <div class="col-md-6 ps-0 mb-3">
-                              <label for="checkin_<?php echo $row['room_id']; ?>" class="form-label">Check-in Date</label>
-                              <input type="date" class="form-control" id="checkin_<?php echo $row['room_id']; ?>" name="checkin_date" min="<?php echo date('Y-m-d'); ?>">
-                              <span id="error-checkin_<?php echo $row['room_id']; ?>" class="error-message"></span>
-
-                            </div>
-                            <div class="col-md-6 ps-0 mb-3">
-                              <label for="checkout_<?php echo $row['room_id']; ?>" class="form-label">Check-out Date</label>
-                              <input type="date" class="form-control" id="checkout_<?php echo $row['room_id']; ?>" name="checkout_date" min="<?php echo date('Y-m-d'); ?>">
-                              <span id="error-checkout_<?php echo $row['room_id']; ?>" class="error-message"></span>
-
-                            </div>
-                            <div class="col-md-6 ps-0 mb-3">
-                              <label for="checkin_time_<?php echo $row['room_id']; ?>" class="form-label">Check-in Time</label>
-                              <input type="time" class="form-control" id="checkin_time_<?php echo $row['room_id']; ?>" name="checkin_time">
-                              <span id="error-checkin-time_<?php echo $row['room_id']; ?>" class="error-message"></span>
-
-                            </div>
-                            <div class="col-md-6 ps-0 mb-3">
-                              <label for="checkout_time_<?php echo $row['room_id']; ?>" class="form-label">Check-out Time</label>
-                              <input type="time" class="form-control" id="checkout_time_<?php echo $row['room_id']; ?>" name="checkout_time">
-                              <span id="error-checkout-time_<?php echo $row['room_id']; ?>" class="error-message"></span>
-
-                            </div>
-                            <div class="col-md-6 ps-0 mb-3">
-                              <label for="num_adults_<?php echo $row['room_id']; ?>" class="form-label">Number of Adults</label>
-                              <input type="number" class="form-control" id="num_adults_<?php echo $row['room_id']; ?>" name="num_adults" min="1">
-                              <span id="error-num-adults_<?php echo $row['room_id']; ?>" class="error-message"></span>
-
-                            </div>
-                            <div class="col-md-6 ps-0 mb-3">
-                              <label for="num_children_<?php echo $row['room_id']; ?>" class="form-label">Number of Children</label>
-                              <input type="number" class="form-control" id="num_children_<?php echo $row['room_id']; ?>" name="num_children" min="0">
-                            </div>
-                            <div class="col-md-12 ps-0 mb-3">
-                              <label for="total_price_<?php echo $row['room_id']; ?>" class="form-label">Total Price</label>
-                              <div class="input-group">
-                                <span class="input-group-text">₱</span>
-                                <input type="text" class="form-control" id="total_price_<?php echo $row['room_id']; ?>" name="total_price" readonly>
-                              </div>
-                            </div>
-
-
-                          </div>
-                        </div>
-                      </div>
-                      <div class="modal-footer">
-                        <button type="submit" class="btn btn-primary" onclick="return validateForm('<?php echo $row['room_id']; ?>')">Book Now</button>
-                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                      </div>
-                    </form>
-
-                  </div>
-                </div>
-              </div>
+              
           <?php
             }
           } else {
@@ -250,21 +180,7 @@ session_start();
           ?>
         </div>
 
-      </div>
-      <!-- Booking result Modal  -->
-      <div class="modal fade" id="bookingResultModal" tabindex="-1" aria-labelledby="bookingResultModalLabel" aria-hidden="true">
-        <div class="modal-dialog modal-dialog-centered">
-          <div class="modal-content">
-            <div class="modal-header">
-              <h5 class="modal-title" id="bookingResultModalLabel">Booking Result</h5>
-              <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-            </div>
-            <div class="modal-body" id="bookingResultBody">
-              <!-- Result will be displayed here -->
-            </div>
-          </div>
-        </div>
-      </div>
+
     
 
         <div class="col-lg-8 text-end">
@@ -280,9 +196,9 @@ session_start();
 
     // Count total records based on search
     if (!empty($searchTerm)) {
-        $sql = "SELECT COUNT(*) AS total FROM rooms WHERE room_name LIKE '%$searchTerm%'";
+        $sql = "SELECT COUNT(*) AS total FROM food WHERE food_name LIKE '%$searchTerm%'";
     } else {
-        $sql = "SELECT COUNT(*) AS total FROM rooms";
+        $sql = "SELECT COUNT(*) AS total FROM food";
     }
 
     $result = $conn->query($sql);
